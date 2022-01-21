@@ -33,6 +33,7 @@
                 <tr>
                     <th>Decription</th>
                     <th>Quantity</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +41,7 @@
                 {% for widget in widgets %}
                 <td>{{ widget.description }}</td>
                 <td>{{ widget.quantity }}</td>
+                <td><a href="{% url 'remove_widget' widget.id %}">X</a></td>
             </tr>
             {% endfor %}
             </tbody>

@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from pyexpat import model
+from django.shortcuts import redirect, render
+from django.views.generic.edit import CreateView, DeleteView
 from.forms import CreateWidgetForm
 from .models import Widget
 
@@ -14,3 +15,12 @@ class WidgetCreate(CreateView):
     model = Widget
     fields = '__all__'
     success_url = '/'
+
+# class RemoveWidget(DeleteView):
+#     model = Widget
+#     success_url = '/'
+
+def remove_widget(request, widget_id):
+    widget = Widget.objects.get(id=widget_id)
+    widget.delete()
+    return redirect('index')
