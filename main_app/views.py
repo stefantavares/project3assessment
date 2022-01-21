@@ -16,10 +16,6 @@ class WidgetCreate(CreateView):
     fields = '__all__'
     success_url = '/'
 
-# class RemoveWidget(DeleteView):
-#     model = Widget
-#     success_url = '/'
-
 def remove_widget(request, widget_id):
     widget = Widget.objects.get(id=widget_id)
     widget.delete()
